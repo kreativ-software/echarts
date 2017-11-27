@@ -5,11 +5,12 @@ import OrdinalScale from '../scale/Ordinal';
 import IntervalScale from '../scale/Interval';
 import Scale from '../scale/Scale';
 import * as numberUtil from '../util/number';
-import {calBarWidthAndOffset} from '../layout/barGrid';
+import barGrid from '../layout/barGrid';
 
 import '../scale/Time';
 import '../scale/Log';
 
+var calBarWidthAndOffset = barGrid.calBarWidthAndOffset;
 /**
  * Get axis scale extent before niced.
  * Item of returned array can only be number (including Infinity and NaN).

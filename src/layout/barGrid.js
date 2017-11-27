@@ -50,7 +50,7 @@ function getLayoutOnAxis(opt, api) {
     return result;
 }
 
-export function calBarWidthAndOffset(barSeries, api) {
+function calBarWidthAndOffset(barSeries, api) {
     var seriesInfoList = zrUtil.map(barSeries, function (seriesModel) {
         var data = seriesModel.getData();
         var cartesian = seriesModel.coordinateSystem;
@@ -318,5 +318,6 @@ function barLayoutGrid(seriesType, ecModel, api) {
 }
 
 barLayoutGrid.getLayoutOnAxis = getLayoutOnAxis;
+barLayoutGrid.calBarWidthAndOffset = calBarWidthAndOffset;
 
 export default barLayoutGrid;

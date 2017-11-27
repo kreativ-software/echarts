@@ -25366,7 +25366,7 @@ function getLayoutOnAxis(opt, api) {
     return result;
 }
 
-function calBarWidthAndOffset(barSeries, api) {
+function calBarWidthAndOffset$1(barSeries, api) {
     var seriesInfoList = map(barSeries, function (seriesModel) {
         var data = seriesModel.getData();
         var cartesian = seriesModel.coordinateSystem;
@@ -25519,7 +25519,7 @@ function doCalBarWidthAndOffset(seriesInfoList, api) {
  */
 function barLayoutGrid(seriesType, ecModel, api) {
 
-    var barWidthAndOffset = calBarWidthAndOffset(
+    var barWidthAndOffset = calBarWidthAndOffset$1(
         filter(
             ecModel.getSeriesByType(seriesType),
             function (seriesModel) {
@@ -25634,6 +25634,7 @@ function barLayoutGrid(seriesType, ecModel, api) {
 }
 
 barLayoutGrid.getLayoutOnAxis = getLayoutOnAxis;
+barLayoutGrid.calBarWidthAndOffset = calBarWidthAndOffset$1;
 
 // [About UTC and local time zone]:
 // In most cases, `number.parseDate` will treat input data string as local time
@@ -26005,6 +26006,7 @@ function fixRoundingError(val, originalVal) {
     return roundingErrorFix(val, getPrecisionSafe$1(originalVal));
 }
 
+var calBarWidthAndOffset = barLayoutGrid.calBarWidthAndOffset;
 /**
  * Get axis scale extent before niced.
  * Item of returned array can only be number (including Infinity and NaN).
