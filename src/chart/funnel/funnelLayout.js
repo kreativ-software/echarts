@@ -100,6 +100,7 @@ export default function (ecModel, api, payload) {
     ecModel.eachSeriesByType('funnel', function (seriesModel) {
         var data = seriesModel.getData();
         var sort = seriesModel.get('sort');
+        var flip = seriesModel.get('flip');
         var viewRect = getViewRect(seriesModel, api);
         var indices = getSortedIndices(data, sort);
 
@@ -145,7 +146,7 @@ export default function (ecModel, api, payload) {
             ];
         };
 
-        if (sort === 'ascending') {
+        if (flip || sort === 'ascending') {
             // From bottom to top
             itemHeight = -itemHeight;
             gap = -gap;
